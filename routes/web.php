@@ -52,6 +52,15 @@ $tasks = [
         '2023-03-04 12:00:00',
         '2023-03-04 12:00:00'
     ),
+    new Task(
+        5,
+        'Levar a Mya no Veterinario',
+        'Mya esta doente de amor',
+        null,
+        false,
+        '',
+        ''
+    )
 ];
 
 Route::get('/', function () {
