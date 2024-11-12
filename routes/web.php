@@ -37,9 +37,17 @@ Route::post('/tasks', function (TaskRequest $request) {
     return redirect()->route('tasks.show', $task->id)->with('success', 'Task created succesfully');
 })->name('tasks.store');
 
-Route::put('/tasks/{task}', function (ModelsTask $task,TaskRequest $request) {
+Route::put('/tasks/{task}', function (ModelsTask $task, TaskRequest $request) {
 
     $task->update($request->validated());
 
     return redirect()->route('tasks.show', $task->id)->with('success', 'Task updated succesfully');
 })->name('tasks.update');
+
+Route::delete('/tasks/{task}', function (ModelsTask $task) {
+    $task->delete();
+    return redirect()->route('tasks.index')->with(
+        'success',
+        'Task deleted succesfully'
+    );
+})->name('tasks.destroy');
